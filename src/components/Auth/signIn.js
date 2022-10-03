@@ -5,18 +5,24 @@ import {
   Card,
   CardContent,
   InputAdornment,
-  IconButton
+  IconButton,
+  Alert
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { getUser } from '../Action/authAction'
 import { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from "react-router-dom";
 import "./index.css";
 
 const SignIn = () => {
+  const { userAccess } = useSelector(state => state.auth)
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
     showPassword: false
   });
+  const dispatch = useDispatch()
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormValues({
@@ -25,9 +31,12 @@ const SignIn = () => {
     });
   };
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    delete formValues.showPassword
     console.log(formValues);
+    dispatch(getUser(formValues))
   };
 
   const handleMouseDownPassword = () => {
@@ -47,6 +56,7 @@ const SignIn = () => {
   return (
     <Card className="signup_structure">
       <CardContent>
+        {userAccess && <Redirect to="/profile" />}
         <form onSubmit={handleSubmit} className="signup_form ">
           <Grid
             container
