@@ -7,7 +7,7 @@ const HomePage = () => {
       <RegisterDropDown />
       <Theme />
       <div className="entance roll-in-left">
-        <h1 className="hightlight tracking-in-expand">Build Your Resume</h1>
+        <h1 className="hightlight tracking-in-expand">Build Your Profile</h1>
       </div>
     </>
   );

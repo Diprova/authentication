@@ -37,8 +37,8 @@ const RegisterDropDown = () => {
         transformOrigin={{ horizontal: "center" }}
       >
         <MenuItem onClick={() => history.push("/signUp")}>Sign Up</MenuItem>
-        <MenuItem>Sign In</MenuItem>
-        <MenuItem>Sign Out</MenuItem>
+        <MenuItem onClick={() => history.push("/signIn")}>Sign In</MenuItem>
+        <MenuItem onClick={() => history.push("/")}>Sign Out</MenuItem>
       </Menu>
     </div>
   );
