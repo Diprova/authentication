@@ -1,4 +1,4 @@
-import { Grid, TextField, Button } from "@mui/material";
+import { Grid, TextField, Button, Avatar } from "@mui/material";
 import { useState } from "react";
 
 const Submission = () => {
@@ -21,16 +21,24 @@ const Submission = () => {
   };
 
   const imageController = (e) => {
-    console.log(e.target.value);
-    setPic(e.target.value);
+    console.log(URL.createObjectURL(e.target.files[0]))
+    setPic(URL.createObjectURL(e.target.files[0]));
+    profileData.image = `${pic}`
   };
+
+  console.log(profileData, '---profile data');
   return (
     <div className="submission">
       <div>
         <Button component="label">
-          <img
-            src="C:\Users\dipro_otm4i2f\OneDrive\Desktop\jpeg_file_99175.jpg"
-            alt="profile"
+          <Avatar
+            src={pic ? pic : "/broken-image.jpg"}
+            className="avatar"
+            aria-controls={open ? "simple-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+            style={{ cursor: "pointer" }}
+            sx={{ width: 70, height: 70 }}
           />
           <input
             hidden

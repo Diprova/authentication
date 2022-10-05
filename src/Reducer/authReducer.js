@@ -6,8 +6,8 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state, user: action.payload
             }
-        case 'GET_USER':
-            console.log(action.payload)
+        case 'LOGIN':
+            localStorage.setItem('access-token', action.payload)
             return {
                 ...state, userAccess: action.payload
             }

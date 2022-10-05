@@ -114,12 +114,6 @@
   }
 }
 
-.avatar {
-  height: 9rem;
-  width : 9rem;
-  cursor: pointer;
-}
-
 .signUp {
   display       : flex;
   flex-direction: column;

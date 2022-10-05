@@ -6,10 +6,10 @@ import {
   CardContent,
   InputAdornment,
   IconButton,
-  Alert
+  CircularProgress
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { getUser } from '../Action/authAction'
+import { login } from '../Action/authAction'
 import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from "react-router-dom";
@@ -36,7 +36,7 @@ const SignIn = () => {
     e.preventDefault();
     delete formValues.showPassword
     console.log(formValues);
-    dispatch(getUser(formValues))
+    dispatch(login(formValues))
   };
 
   const handleMouseDownPassword = () => {

@@ -9,10 +9,10 @@ export const createUser = data => dispatch => {
         .catch(err => console.log(err))
 }
 
-export const getUser = data => dispatch => {
-    axios.post(`${reqUrl}/getUser`, data)
+export const login = data => dispatch => {
+    axios.post(`${reqUrl}/login`, data)
         .then(response => {
-            dispatch({ type: 'GET_USER', payload: response.data })
+            dispatch({ type: 'LOGIN', payload: response.data })
         })
         .catch(err => {
             console.log(err)
