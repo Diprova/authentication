@@ -50,7 +50,7 @@ const SignUp = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setError(error.state = false);
+    error.state = false;
     let errors = validate(formValues).errors;
     if (!Object.keys(errors).length > 0) {
       delete formValues.showPassword

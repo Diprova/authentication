@@ -3,8 +3,9 @@ import { createBrowserHistory } from 'history';
 const history = createBrowserHistory();
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-let reqUrl = 'http://localhost:3500'
+let reqUrl = 'https://auth-check.herokuapp.com'
 // 'https://auth-check.herokuapp.com'
+// 'http://localhost:3500'
 
 export const createUser = data => dispatch => {
     axios.post(`${reqUrl}/createUser`, data)
