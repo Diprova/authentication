@@ -1,5 +1,6 @@
 import axios from 'axios';
 let reqUrl = 'https://auth-check.herokuapp.com'
+// 'https://auth-check.herokuapp.com'
 
 export const createUser = data => dispatch => {
     axios.post(`${reqUrl}/createUser`, data)
@@ -12,7 +13,7 @@ export const createUser = data => dispatch => {
 export const login = data => dispatch => {
     axios.post(`${reqUrl}/login`, data)
         .then(response => {
-            dispatch({ type: 'LOGIN', payload: response.data })
+            dispatch({ type: 'LOGIN', payload: response.data.data })
         })
         .catch(err => {
             console.log(err)
