@@ -23,7 +23,7 @@ const Submission = () => {
   const imageController = (e) => {
     console.log(URL.createObjectURL(e.target.files[0]))
     setPic(URL.createObjectURL(e.target.files[0]));
-    profileData.image = `${pic}`
+    profileData.image = URL.createObjectURL(e.target.files[0])
   };
 
   console.log(profileData, '---profile data');
