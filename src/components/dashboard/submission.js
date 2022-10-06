@@ -1,5 +1,8 @@
 import { Grid, TextField, Button, Avatar } from "@mui/material";
 import { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { submission } from '../Action/authAction';
+import { ToastContainer } from 'react-toastify';
 
 const Submission = () => {
   const [profileData, setProfileData] = useState({
@@ -9,7 +12,7 @@ const Submission = () => {
     projects: ""
   });
   const [pic, setPic] = useState();
-
+  const dispatch = useDispatch()
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setProfileData({ ...profileData, [name]: value });
@@ -17,18 +20,17 @@ const Submission = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(profileData);
+    dispatch(submission(profileData))
   };
 
   const imageController = (e) => {
-    console.log(URL.createObjectURL(e.target.files[0]))
     setPic(URL.createObjectURL(e.target.files[0]));
     profileData.image = URL.createObjectURL(e.target.files[0])
   };
 
-  console.log(profileData, '---profile data');
   return (
     <div className="submission">
+      <ToastContainer />
       <div>
         <Button component="label">
           <Avatar
@@ -70,8 +72,8 @@ const Submission = () => {
             </Grid>
             <Grid item>
               <TextField
-                id="outlined-multiline-flexible"
-                name="ocupation"
+                id="outlined-multiline-static"
+                name="occupation"
                 label="Ocupation"
                 type="text"
                 multiline

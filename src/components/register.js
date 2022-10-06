@@ -3,10 +3,10 @@ import { Avatar } from "@mui/material";
 import { Menu } from "@mui/material";
 import { MenuItem } from "@mui/material";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from 'react-redux';
-import { logout } from './Action/authAction';
+import { useDispatch, useSelector } from 'react-redux';
 
 const RegisterDropDown = () => {
+  const { submissionData } = useSelector(state => state.auth)
   const [anchorEl, setAnchorEl] = useState(null);
   const history = useHistory();
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ const RegisterDropDown = () => {
   return (
     <div className="signUp">
       <Avatar
-        src="/broken-image.jpg"
+        src={submissionData ? submissionData.image : "/broken-image.jpg"}
         className="avatar"
         aria-controls={open ? "simple-menu" : undefined}
         aria-haspopup="true"

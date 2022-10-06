@@ -35,7 +35,6 @@ const SignIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     delete formValues.showPassword
-    console.log(formValues);
     dispatch(login(formValues))
   };
 

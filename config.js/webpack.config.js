@@ -14,6 +14,11 @@ const config = {
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         use: ["img-loader"]
+      },
+      {
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: "javascript/auto"
       }
     ]
   },
@@ -40,11 +45,11 @@ module.exports = function (env, args) {
     },
     plugins: [
       env.development &&
-        new webpack.ProgressPlugin({
-          handler: (percentage, message) => {
-            console.info(percentage, message);
-          }
-        })
+      new webpack.ProgressPlugin({
+        handler: (percentage, message) => {
+          console.info(percentage, message);
+        }
+      })
     ]
   };
 };
