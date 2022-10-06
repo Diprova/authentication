@@ -1,5 +1,5 @@
 import axios from 'axios';
-let reqUrl = 'http://localhost:3500'
+let reqUrl = 'https://auth-check.herokuapp.com'
 
 export const createUser = data => dispatch => {
     axios.post(`${reqUrl}/createUser`, data)
